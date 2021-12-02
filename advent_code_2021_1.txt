@@ -1,0 +1,14 @@
+use reqwest::header::COOKIE;
+
+#[tokio::main]
+async fn main(){
+    let request_url = "https://adventofcode.com/2021/day/1/input";
+    let client = reqwest::Client::new();
+    
+    let response = client.get(request_url)
+    .header(COOKIE, "ru=53616c7465645f5f2528fb122710e9cd1924be9282953329c483b267114d3d43ca1278de39fa50fb75e977d1d9e6b85e; session=53616c7465645f5f4b02e164b57b0723801225eca7546fa70f9f800e795ef1fefd22faec0912aeb965658270d1259f2d")
+    .send()
+    .await;
+    
+    println!("{:?}", response);  
+}
